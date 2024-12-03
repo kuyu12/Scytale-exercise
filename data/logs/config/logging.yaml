@@ -1,0 +1,40 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  scytale_format:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: scytale_format
+    stream: ext://sys.stdout
+
+  info_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: scytale_format
+    filename: data/logs/info.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20
+    encoding: utf8
+
+  error_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: scytale_format
+    filename: data/logs/errors.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20
+    encoding: utf8
+
+#loggers:
+#  scytale:
+#    level: ERROR
+#    handlers: [console]
+#    propagate: no
+
+root:
+  level: INFO
+  handlers: [console, info_file_handler, error_file_handler]
