@@ -59,7 +59,7 @@ This project is an ETL (Extract, Transform, Load) pipeline designed to process d
 * Define the organization name as an environment variable called ORGANIZATION_VAR_NAME.
 
    ```bash
-   export ORGANIZATION_VAR_NAME=Scytale-exercise
+   export ORGANIZATION_VAR_NAME='Scytale-exercise'
    export GITHUB_TOKEN='<YOUR_PERSONAL_GITHUB_TOKEN>'
    ```
 
